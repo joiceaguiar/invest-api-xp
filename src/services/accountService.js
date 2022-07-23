@@ -30,7 +30,18 @@ const createWithdrawal = async ({ clientId, value }) => {
   return { status: 201, response: { CodCliente: clientId, Valor: value } };
 };
 
+const getByClientId = async (clientId) => {
+  const client = await Client.findOne({ where: { id: clientId } });
+
+  if (!client) {
+    return { status: 404, response: { message: 'Client does not exist' } };
+  };
+  
+  return { status: 200, response: { CodCliente: clientId, Saldo: client.balance } };
+};
+
 module.exports = {
   createDeposit,
   createWithdrawal,
+  getByClientId,
 };
