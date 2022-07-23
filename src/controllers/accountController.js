@@ -9,6 +9,16 @@ const createDeposit = async (req, res) => {
   }
 };
 
+const createWithdrawal = async (req, res) => {
+  try {
+    const { status, response } = await accountService.createWithdrawal(req.body);
+    return res.status(status).json(response);
+  } catch (error) {
+    return res.status(500).send('Internal Server Error');
+  }
+};
+
 module.exports = {
   createDeposit,
+  createWithdrawal,
 };
