@@ -5,19 +5,25 @@ const createPurchase = async ({ clientId, assetId, quantity }) => {
   const asset = await Asset.findOne({ where: { id: assetId } });
 
   if (!client) {
-    return res.status(404).json({ message: 'Client does not exist' }); 
+    return { status: 404, response: { message: 'Client not found' } }; 
   };
 
   if (!asset) {
-    return res.status(404).json({ message: 'Asset does not exist' }); 
+    return { status: 404, response: { message: 'Asset not found' } }; 
   };
 
   const clientWallet = await ClientAsset.findOne({ where: { clientId, assetId } });
 
   if (quantity > asset.quantity) {
-    return { status: 400, response: { message: 'Quantity cannot be greater than available' } };
+    return { status: 400, response: { message: 'Quantity greater than available' } };
   };
 
+  const totalValue = quantity * asset.value;
+
+  if (totalValue > client.balance) {
+    return { status: 400, response: { message: 'Total amount greater than available balance' } };
+  };
+  
   if (!clientWallet) {
     await ClientAsset.create({ clientId, assetId, quantity });
   } else {
@@ -25,13 +31,8 @@ const createPurchase = async ({ clientId, assetId, quantity }) => {
     await ClientAsset.update({ quantity: updateWallet }, { where: { clientId, assetId } });
   };
 
-  const totalValue = quantity * asset.value;
   const newQuantity = Number(asset.quantity) - Number(quantity);
   const newBalance = Number(client.balance) - Number(totalValue);
-
-  if (totalValue > client.balance) {
-    return { status: 400, response: { message: 'The amount cannot be greater than clients balance' } };
-  };
 
   await Asset.update({ quantity: newQuantity }, { where: { id: assetId } });
   await Client.update({ balance: newBalance }, { where: { id: clientId } });
@@ -51,11 +52,11 @@ const createSale = async ({ clientId, assetId, quantity }) => {
   const asset = await Asset.findOne({ where: { id: assetId } });
 
   if (!client) {
-    return res.status(404).json({ message: 'Client does not exist' }); 
+    return { status: 404, response: { message: 'Client not found' } }; 
   };
 
   if (!asset) {
-    return res.status(404).json({ message: 'Asset does not exist' }); 
+    return { status: 404, response: { message: 'Asset not found' } }; 
   };
 
   const clientWallet = await ClientAsset.findOne({ where: { clientId, assetId } });
@@ -64,14 +65,14 @@ const createSale = async ({ clientId, assetId, quantity }) => {
     return { status: 404, response: { message: 'Client does not has assets' } }; 
   };
 
+  if (quantity > clientWallet.quantity) {
+    return { status: 400, response: { message: 'Quantity greater than available' } };
+  };
+
   const totalValue = quantity * asset.value;
   const newBalance = Number(client.balance) + Number(totalValue);
   const newQuantity = Number(asset.quantity) + Number(quantity);
   const updateWallet = Number(clientWallet.quantity) - Number(quantity);
-
-  if (quantity > clientWallet.quantity) {
-    return { status: 400, response: { message: 'Quantity cannot be greater than available' } };
-  };
 
   await Asset.update({ quantity: newQuantity }, { where: { id: assetId } });
   await Client.update({ balance: newBalance }, { where: { id: clientId } });
