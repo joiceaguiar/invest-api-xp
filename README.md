@@ -38,9 +38,7 @@ Por fim, utilizei o ESLint para padronizar a indentação do código e minimizar
   - `npm run dev`: vai rodar a aplicação na porta `3000` pelo `nodemon`;
   
   - `npm run drop`: vai dropar o `invest_api_db`.
-  
-  Você encontrará um arquivo example.env onde estarão as variáveis de ambiente utilizadas no projeto, duplique-o e renomeie-o apenas para .env e insira os valores nas variáveis de ambiente conforme sua utilização.
-  
+
 </details>
 <details>
   <summary><strong>👎 🐋 Sem Docker</strong></summary>
