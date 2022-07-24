@@ -6,11 +6,11 @@ funcionalidades de conta digital.
 
 ## 💡 Tomadas de decisão
 
-Desenvolvi a presente aplicação em JavaScript e Node.js.
-Para criar ambientes isolados utilizei o Docker – pensando em empacotar toda a aplicação e suas dependências, facilitando a distribuição.
-Desenvolvi a aplicação utilizando ORM Sequelize, para suportar diferentes dialetos de bancos de dados.
-Para facilitar a manutenção e adição de novos recursos reaproveitando de código, segui o padrão de arquitetura MSC _(Models - Services - Controllers)_.
-Por fim, utilizei o ESLint para padronizar a indentação do código.
+Desenvolvi a presente aplicação em JavaScript e Node.js, pensando na usabilidade das linguagens e compatilidade com navegadores modernos.
+Para criar ambientes isolados, utilizei o Docker – para empacotar toda a aplicação e suas dependências, facilitando assim sua distribuição.
+Desenvolvi a api utilizando ORM Sequelize, para suportar diferentes dialetos de bancos de dados.
+Para facilitar a manutenção e adição de novos recursos reaproveitando o código, segui o padrão de arquitetura MSC _(Models - Services - Controllers)_.
+Por fim, utilizei o ESLint para padronizar a indentação do código e minimizar erros.
 
 ## ⚙️ Executando o projeto
 <details>
