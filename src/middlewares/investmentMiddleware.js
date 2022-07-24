@@ -2,7 +2,7 @@ const investmentValidation = async (req, res, next) => {
   const { clientId, assetId, quantity } = req.body;
 
   if (!clientId || !assetId || !quantity) {
-    return res.status(400).json({ message: 'Information is needed' });
+    return res.status(400).json({ message: 'Data is required' });
   }
 
   next();
