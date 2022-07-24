@@ -53,6 +53,14 @@ Por fim, utilizei o ESLint para padronizar a indentação do código.
   > :information_source: Rode a aplicação com `npm run dev` na porta `3000` pelo `nodemon`, ou adapte o `.env` caso queira.
   
 </details>
+<details>
+
+<summary><strong>🔒🔑 .env.example</strong></summary><br/>
+  
+> :information_source: No arquivo `.env.example` contém as variáveis de ambiente utilizadas nesta aplicação. Faça uma cópia e renomeie-a apenas para `.env`, em seguida insira os valores nas variáveis de ambiente conforme sua utilização.
+<br />
+  
+</details>
   
 ## 💻 Tecnologias utilizadas
 
