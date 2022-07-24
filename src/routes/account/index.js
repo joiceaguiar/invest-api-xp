@@ -1,12 +1,12 @@
 const express = require('express');
 
 const accountController = require('../../controllers/accountController');
-const clientValidation = require('../../middlewares/clientMiddleware');
+const accountValidation = require('../../middlewares/accountMiddleware');
 
 const accountRouter = express.Router();
 
-accountRouter.post('/deposito', clientValidation, accountController.createDeposit);
-accountRouter.post('/saque', clientValidation, accountController.createWithdrawal);
+accountRouter.post('/deposito', accountValidation, accountController.createDeposit);
+accountRouter.post('/saque', accountValidation, accountController.createWithdrawal);
 accountRouter.get('/:id', accountController.getByClientId);
 
 module.exports = accountRouter;
