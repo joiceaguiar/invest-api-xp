@@ -31,13 +31,13 @@ Por fim, utilizei o ESLint para padronizar a indentação do código e minimizar
   
   👉 **DENTRO do container**, você pode executar os seguintes comandos:
   
-  - `npm run prestart`: vai gerar as migrations do `invest_api_db`;
+  - `npm run prestart`: para gerar as migrations do `invest_api_db`;
   
-  - `npm run seed`: vai gerar os seeders do `invest_api_db`;
+  - `npm run seed`: para gerar os seeders do `invest_api_db`;
 
-  - `npm run dev`: vai rodar a aplicação na porta `3000` pelo `nodemon`;
+  - `npm run dev`: para rodar a aplicação na porta `3000` pelo `nodemon`;
   
-  - `npm run drop`: vai dropar o `invest_api_db`.
+  - `npm run drop`: para dropar o `invest_api_db`.
 
 </details>
 <details>
