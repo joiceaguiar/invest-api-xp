@@ -87,4 +87,4 @@ Por fim, utilizei o ESLint para padronizar a indentação do código e minimizar
 
 ## 🙏 Agradecimentos
 
-Obrigada <a href="https://betrybe.com">Trybe</a> e <a href="https://www.xpinc.com/">XP Inc.</a>, por permitirem que eu vivesse esta maravilhosa e**XP**eriência! 🚀
+Obrigada <a href="https://betrybe.com">Trybe</a> e <a href="https://www.xpinc.com/">XP Inc.</a>, por me proporcionarem esta e**XP**eriência enriquecedora! 🚀
